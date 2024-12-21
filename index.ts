@@ -73,11 +73,6 @@ app.use((req:Request, res:Response,next:NextFunction)=>{
 
 routesAPI(app);
 
-//Đường dẫn không tồn tại
-app.get('*', (req: Request, res: Response) => {
-    res.render('admin/pages/error/404');
-});
-
 server.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
