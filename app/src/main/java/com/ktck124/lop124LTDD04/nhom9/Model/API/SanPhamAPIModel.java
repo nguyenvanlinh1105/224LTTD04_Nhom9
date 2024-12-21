@@ -1,9 +1,10 @@
 package com.ktck124.lop124LTDD04.nhom9.Model.API;
 
-import com.example.foodtrack.Model.BinhLuanSanPhamModel;
-import com.example.foodtrack.Model.ChiTietDonHangAPIModel;
-import com.example.foodtrack.Model.DanhMucModel;
-import com.example.foodtrack.Model.SanPhamYeuThichModel;
+
+import com.ktck124.lop124LTDD04.nhom9.Model.BinhLuanSanPhamModel;
+import com.ktck124.lop124LTDD04.nhom9.Model.ChiTietDonHangAPIModel;
+import com.ktck124.lop124LTDD04.nhom9.Model.DanhMucModel;
+import com.ktck124.lop124LTDD04.nhom9.Model.SanPhamYeuThichModel;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

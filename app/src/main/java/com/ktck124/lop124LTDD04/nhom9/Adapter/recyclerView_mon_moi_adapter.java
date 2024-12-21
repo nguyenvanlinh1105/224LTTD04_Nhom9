@@ -25,10 +25,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.foodtrack.Activity.MainActivity;
-import com.example.foodtrack.Fragment.fragment_product_detail;
-import com.example.foodtrack.Model.SanPhamModel;
-import com.example.foodtrack.R;
+import com.example.nhom9.lop224LTTD04.R;
+import com.ktck124.lop124LTDD04.nhom9.Model.SanPhamModel;
+
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -79,36 +78,9 @@ public class recyclerView_mon_moi_adapter extends RecyclerView.Adapter<recyclerV
                     }
                 });
 
-        holder.container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString("title", holder.title.getText().toString());
-                bundle.putString("price", holder.price.getText().toString());
-                bundle.putString("description", product.getMoTa());
-                bundle.putInt("image", product.getImages());
-                bundle.putInt("soLuongDaBan", product.getSoLuongDaBan());
-                fragment_product_detail productDetailsFragment = fragment_product_detail.newInstance(
-                        holder.title.getText().toString(),
-                        product.getGiaTien(),
-                        product.getMoTa(),
-                        product.getImages()
-                );
-                MainActivity mainActivity = (MainActivity) context;
-                if (mainActivity != null)
-                    mainActivity.ReplaceFragment(productDetailsFragment);
 
-            }
-        });
 
-        holder.btn_AddToCart_banChay_monMoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Toast.makeText(context.getApplicationContext(), "Thêm sản phẩm vào giỏ hàng thành công", Toast.LENGTH_LONG).show();
-                CreatePopup(view);
-            }
 
-        });
 
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.scale_listview_sanpham);
         holder.itemView.startAnimation(animation);
@@ -136,30 +108,6 @@ public class recyclerView_mon_moi_adapter extends RecyclerView.Adapter<recyclerV
         }
     }
 
-    private void CreatePopup(View view) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        int width = ViewGroup.LayoutParams.WRAP_CONTENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true;
-        View popupView = inflater.inflate(R.layout.popup_add_to_cart, null);
-
-        PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-
-        view.post(new Runnable() {
-            @Override
-            public void run() {
-                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-            }
-        });
-        int delay = 1100;
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                popupWindow.dismiss();
-            }
-        }, delay);
-
-    }
 
 }

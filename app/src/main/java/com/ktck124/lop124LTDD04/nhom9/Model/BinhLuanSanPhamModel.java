@@ -1,7 +1,7 @@
 package com.ktck124.lop124LTDD04.nhom9.Model;
 
-import com.example.foodtrack.Model.API.NguoiDungAPIModel;
-import com.example.foodtrack.Model.API.SanPhamAPIModel;
+import com.ktck124.lop124LTDD04.nhom9.Model.API.NguoiDungAPIModel;
+import com.ktck124.lop124LTDD04.nhom9.Model.API.SanPhamAPIModel;
 
 public class BinhLuanSanPhamModel {
     private String idBinhLuan;

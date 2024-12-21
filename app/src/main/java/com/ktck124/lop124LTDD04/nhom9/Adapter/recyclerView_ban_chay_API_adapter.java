@@ -27,12 +27,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.foodtrack.API.APIService;
-import com.example.foodtrack.Activity.MainActivity;
-import com.example.foodtrack.Fragment.fragment_product_detail_API;
-import com.example.foodtrack.Model.API.SanPhamAPIModel;
-import com.example.foodtrack.Model.ChiTietDonHangAPIModel;
-import com.example.foodtrack.R;
+import com.example.nhom9.lop224LTTD04.R;
+import com.ktck124.lop124LTDD04.nhom9.Model.API.SanPhamAPIModel;
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -93,30 +89,6 @@ public class recyclerView_ban_chay_API_adapter extends RecyclerView.Adapter<recy
                 });
 
         // Khi click vào item, chuyển sang fragment chi tiết sản phẩm
-        holder.container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString("idSanPham",product.getIdSanPham());
-                bundle.putString("title", holder.title.getText().toString());
-                bundle.putString("price", holder.price.getText().toString());
-                bundle.putString("description", "Mô tả món ăn/đồ uống");
-                bundle.putString("image", product.getImages());
-                bundle.putInt("soLuongDaBan", product.getSoLuongDaBan());
-                fragment_product_detail_API productDetailsFragment = fragment_product_detail_API.newInstance(
-                        product.getIdSanPham(),
-                        holder.title.getText().toString(),
-                        product.getGiaTien(),
-                        product.getMoTa(),
-                        product.getImages(),
-                        product.getSoLuongDaBan()
-                );
-                MainActivity mainActivity = (MainActivity) context;
-                if (mainActivity != null)
-                    mainActivity.ReplaceFragment(productDetailsFragment);
-
-            }
-        });
 
 //        holder.btn_AddToFavorite_banChay_monMoi.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -169,58 +141,8 @@ public class recyclerView_ban_chay_API_adapter extends RecyclerView.Adapter<recy
         }
     }
 
-    private void CreatePopup(View view) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        int width = ViewGroup.LayoutParams.WRAP_CONTENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true;
-        View popupView = inflater.inflate(R.layout.popup_add_to_cart, null);
 
-        PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-
-        view.post(new Runnable() {
-            @Override
-            public void run() {
-                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-            }
-        });
-        int delay = 1100;
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                popupWindow.dismiss();
-            }
-        }, delay);
-
-    }
-
-    private void PostSanPhamToGioHang(ChiTietDonHangAPIModel ctdh){
-        APIService.API_SERVICE.PostToBuyProduct(ctdh).enqueue(new Callback<ChiTietDonHangAPIModel>() {
-            @Override
-            public void onResponse(Call<ChiTietDonHangAPIModel> call, Response<ChiTietDonHangAPIModel> response) {
-                ChiTietDonHangAPIModel ctdh = response.body();
-                if (response.isSuccessful() && response.body() != null ) {
-                    SharedPreferences.Editor editorResponseDonHang = sharedPreferencesDonHang.edit();
-                    if(ctdh.getIdDonHang()==null){
-                        Toast.makeText(context, "Thêm vào giỏ hàng thất bại", Toast.LENGTH_SHORT).show();
-                    }else{
-                        editorResponseDonHang.putString("idDonHang",ctdh.getIdDonHang());
-                    }
-
-                    Toast.makeText(context,ctdh.getIdDonHang()+"",Toast.LENGTH_LONG).show();
-
-                } else {
-                    Toast.makeText(context, "Thêm vào giỏ hàng thất bại", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ChiTietDonHangAPIModel> call, Throwable t) {
-
-            }
-        });
-    }
 
 }
 

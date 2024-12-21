@@ -1,6 +1,6 @@
 package com.ktck124.lop124LTDD04.nhom9.Model;
 
-import com.example.foodtrack.Model.API.SanPhamAPIModel;
+import com.ktck124.lop124LTDD04.nhom9.Model.API.SanPhamAPIModel;
 
 import java.io.Serializable;
 import java.util.Date;

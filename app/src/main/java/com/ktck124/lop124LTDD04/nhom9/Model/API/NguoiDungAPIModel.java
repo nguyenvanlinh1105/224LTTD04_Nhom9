@@ -1,6 +1,7 @@
 package com.ktck124.lop124LTDD04.nhom9.Model.API;
 
-import com.example.foodtrack.Model.vaiTroModel;
+
+import com.ktck124.lop124LTDD04.nhom9.Model.vaiTroModel;
 
 import java.time.LocalDateTime;
 
