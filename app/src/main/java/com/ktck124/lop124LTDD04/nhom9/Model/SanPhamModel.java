@@ -18,7 +18,7 @@ public class SanPhamModel {
 
     private DanhMucModel danhMuc;
     private List<ChiTietDonHangModel> chiTietDonHangs;
-    private List<BinhLuanSanPhamModel> binhLuans;
+
     private List<SanPhamYeuThichModel> sanPhamYeuThichs;
 
 
@@ -125,13 +125,7 @@ public class SanPhamModel {
         this.chiTietDonHangs = chiTietDonHangs;
     }
 
-    public List<BinhLuanSanPhamModel> getBinhLuans() {
-        return binhLuans;
-    }
 
-    public void setBinhLuans(List<BinhLuanSanPhamModel> binhLuans) {
-        this.binhLuans = binhLuans;
-    }
 
     public List<SanPhamYeuThichModel> getSanPhamYeuThichs() {
         return sanPhamYeuThichs;
