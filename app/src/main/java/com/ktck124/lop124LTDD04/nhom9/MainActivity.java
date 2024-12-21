@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.home) {
                 ReplaceFragment(new home_page());
             } else if (item.getItemId() == R.id.explore) {
-                ReplaceFragment(new frag_user());
+                ReplaceFragment(new list_user());
             }
             return true;
         });
