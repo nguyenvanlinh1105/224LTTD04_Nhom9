@@ -15,6 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface APIUSER {
 
@@ -24,16 +25,15 @@ public interface APIUSER {
             .writeTimeout(30, TimeUnit.SECONDS)
             .build();
 
-    // Link API root
-    String url = "https://foodtrack-wpjz.onrender.com/";
+    public static String url ="https://two24lttd04-nhom9.onrender.com/";
 
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:sss").create();
-
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(url)
+    APIUSER APIUSER = new Retrofit.Builder().baseUrl(url)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .build();
+            .build()
+            .create(APIUSER.class);
+
 
 
     // get list user

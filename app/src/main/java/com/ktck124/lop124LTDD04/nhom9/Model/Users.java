@@ -1,17 +1,18 @@
 package com.ktck124.lop124LTDD04.nhom9.Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Users {
+public class Users implements Serializable {
     private String maSinhVien;
     private String hoTen;
     private String lop;
-    private boolean gioiTinh;
-    private LocalDate ngaySinh;
+    private int gioiTinh;
+    private String ngaySinh;
     private String sdt;
 
     // Constructor
-    public Users(String maSinhVien, String hoTen, String lop, boolean gioiTinh, LocalDate ngaySinh, String sdt) {
+    public Users(String maSinhVien, String hoTen, String lop, int gioiTinh, String ngaySinh, String sdt) {
         this.maSinhVien = maSinhVien;
         this.hoTen = hoTen;
         this.lop = lop;
@@ -45,19 +46,19 @@ public class Users {
         this.lop = lop;
     }
 
-    public boolean isGioiTinh() {
+    public int isGioiTinh() {
         return gioiTinh;
     }
 
-    public void setGioiTinh(boolean gioiTinh) {
+    public void setGioiTinh(int gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
 
-    public LocalDate getNgaySinh() {
+    public String getNgaySinh() {
         return ngaySinh;
     }
 
-    public void setNgaySinh(LocalDate ngaySinh) {
+    public void setNgaySinh(String ngaySinh) {
         this.ngaySinh = ngaySinh;
     }
 

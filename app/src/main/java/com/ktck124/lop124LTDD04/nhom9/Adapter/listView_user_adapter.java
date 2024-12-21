@@ -36,7 +36,7 @@ public class listView_user_adapter extends ArrayAdapter<Users> {
         TextView tv_maSv = (TextView) view.findViewById(R.id.tv_maSv_item_user);
         ImageView img_avatar = (ImageView) view.findViewById(R.id.img_avatar_item_user);
 
-        if(users.isGioiTinh()){
+        if(users.isGioiTinh()==1){
             img_avatar.setImageResource(R.drawable.ic_male);
         }
         else{
