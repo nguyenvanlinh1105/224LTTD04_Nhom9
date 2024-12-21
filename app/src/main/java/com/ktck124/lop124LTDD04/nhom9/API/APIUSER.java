@@ -47,4 +47,9 @@ public interface APIUSER {
     // Update user info
     @POST("user/update")
     Call<Users> UpdateInfo(@Body Users model);
+
+    // xóa sinh viên
+    @POST("user/delete")
+    Call<Users> DeleteSinhVien(@Query("maSinhVien") String maSinhVien);
 }
+

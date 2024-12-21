@@ -112,7 +112,7 @@ public class frag_user extends Fragment {
         }
 
         imgCalendar.setOnClickListener(v -> showDatePickerDialog());
-        if(btnLuu.getText()=="Lưu"){
+        if(getArguments()==null){
             btnLuu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -123,15 +123,17 @@ public class frag_user extends Fragment {
                     String updatedNgaySinh = ngaySinh.getText().toString();
                     String updatedSdt = sdt.getText().toString();
 
-                    // Cập nhật đối tượng user
-                    user.setMaSinhVien(updatedMaSinhVien);
-                    user.setHoTen(updatedHoTen);
-                    user.setLop(updatedLop);
-                    user.setGioiTinh(updatedGioiTinh.equals("Nam") ? 1 : 0); // Chuyển đổi Nam/Nữ về giá trị số
-                    user.setNgaySinh(updatedNgaySinh);
-                    user.setSdt(updatedSdt);
+                    Users createUser = new Users(updatedMaSinhVien, updatedHoTen, updatedLop, updatedGioiTinh.equals("Nam") ? 1 : 0, updatedNgaySinh, updatedSdt);
 
-                    AddUser(user);
+                    // Cập nhật đối tượng user
+//                    user.setMaSinhVien(updatedMaSinhVien);
+//                    user.setHoTen(updatedHoTen);
+//                    user.setLop(updatedLop);
+//                    user.setGioiTinh(updatedGioiTinh.equals("Nam") ? 1 : 0); // Chuyển đổi Nam/Nữ về giá trị số
+//                    user.setNgaySinh(updatedNgaySinh);
+//                    user.setSdt(updatedSdt);
+
+                    AddUser(createUser);
                 }
             });
         }else{
